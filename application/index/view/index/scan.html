@@ -1,0 +1,32 @@
+
+{include file='index/index'}
+{include file="public/header"}
+{assign name="user" value="$Think.session.user"}
+
+<div style="width: auto;margin:0 20px;">
+
+    {volist name='list' id='list'}
+        {if $user.id == $list.uid}
+            <tr><td>用户：{$user.username}</td><br>
+                <td>标题：{$list.ptitle}</td><br>
+                <td>内容：{$list.pcontent}</td><br>
+                <td>
+                    <button><a href="#">评论</a></button>
+                    <button><a href="http://localhost/alter?id={$list.id}">修改</a></button>
+                    <button><a href="http://localhost/delete?id={$list.id}">删除</a></button>
+                </td>
+            </tr><br><br>
+        {else /}
+            <tr><td>用户：{$list.user.username}</td><br>
+                <td>标题：{$list.ptitle}</td><br>
+                <td>内容：{$list.pcontent}</td><br>
+                <td>
+                    <button><a href="#">评论</a></button>
+                </td>
+            </tr><br><br>
+        {/if}
+    {/volist}
+    {$page|raw}
+</div>
+
+

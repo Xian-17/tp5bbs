@@ -1,0 +1,26 @@
+
+{include file="public/header"}
+
+{assign name="user" value="$Think.session.user"}
+
+    <div style="margin-top: 18px">
+        {if $user!=null OR $user!=""}
+
+        <a href="http://localhost/post">发表帖子</a> |
+        <a href="http://localhost/scan">浏览帖子</a> |
+        欢迎{$user.username}登录&nbsp;
+        <a href="http://localhost/quit">退出</a>&nbsp;
+        <!--<a href="http://localhost/mainPage">主页面</a>-->
+        <hr>
+
+        {else/}
+
+        <a href="#">发表帖子</a> |
+        <a href="#">浏览帖子</a> |
+        <a href="http://localhost">登录</a> &nbsp;
+        <a href="http://localhost/register">注册</a>
+
+        {include file="index/login"}
+        {/if}
+    </div>
+

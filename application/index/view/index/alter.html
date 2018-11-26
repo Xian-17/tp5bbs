@@ -1,0 +1,14 @@
+
+    {include file='index/index'}
+
+    {assign name="alterInfo" value="$Think.session.alterInfo"}
+
+    <div style="margin-left: 20px">
+        <form action="alterForm" method="post">
+
+            标题：<input type="text" name="ptitle" id="ptitle" value="{$alterInfo.ptitle}"><br>
+            内容：<textarea name="pcontent" id="pcontent" rows="10" cols="30">{$alterInfo.pcontent}</textarea><br>
+            <input type="submit" value="修改">
+
+        </form>
+    </div>
